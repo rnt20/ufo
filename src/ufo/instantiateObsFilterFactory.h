@@ -91,4 +91,3 @@ template<typename MODEL> void instantiateObsFilterFactory() {
 }  // namespace ufo
 
 #endif  // UFO_INSTANTIATEOBSFILTERFACTORY_H_
-
