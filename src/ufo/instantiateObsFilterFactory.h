@@ -22,6 +22,7 @@
 #include "ufo/filters/ObsDomainCheck.h"
 #include "ufo/filters/ObsDomainErrCheck.h"
 #include "ufo/filters/PoissonDiskThinning.h"
+#include "ufo/filters/PracticalBoundsCheck.h"
 #include "ufo/filters/PreQC.h"
 #include "ufo/filters/ProfileConsistencyChecks.h"
 #include "ufo/filters/QCmanager.h"
@@ -67,6 +68,8 @@ template<typename MODEL> void instantiateObsFilterFactory() {
            temporalThinningMaker("Temporal Thinning");
   static oops::FilterMaker<MODEL, oops::ObsFilter<MODEL, ufo::PoissonDiskThinning> >
            poissonDiskThinningMaker("Poisson Disk Thinning");
+  static oops::FilterMaker<MODEL, oops::ObsFilter<MODEL, ufo::PracticalBoundsCheck> >
+           practicalBoundsCheckMaker("Practical Bounds Check");
   static oops::FilterMaker<MODEL, oops::ObsFilter<MODEL, ufo::ObsDiagnosticsWriter> >
            YDIAGsaverMaker("YDIAGsaver");
   static oops::FilterMaker<MODEL, oops::ObsFilter<MODEL, ufo::TrackCheck> >
@@ -88,3 +91,4 @@ template<typename MODEL> void instantiateObsFilterFactory() {
 }  // namespace ufo
 
 #endif  // UFO_INSTANTIATEOBSFILTERFACTORY_H_
+

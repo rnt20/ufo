@@ -1096,6 +1096,13 @@ ecbuild_add_test( TARGET  test_ufo_opr_radarradialvelocity
 
 # Test UFO ObsFilters (generic)
 
+ecbuild_add_test( TARGET  test_ufo_qc_gen_practical_boundscheck
+                  COMMAND ${CMAKE_BINARY_DIR}/bin/test_ObsFilters.x
+                  ARGS    "testinput/qc_practical_boundscheck.yaml"
+                  ENVIRONMENT OOPS_TRAPFPE=1
+                  DEPENDS test_ObsFilters.x
+                  TEST_DEPENDS ufo_get_ufo_test_data )
+
 ecbuild_add_test( TARGET  test_ufo_qc_gen_processwhere
                   SOURCES mains/TestProcessWhere.cc
                   ARGS    "testinput/processwhere.yaml"
